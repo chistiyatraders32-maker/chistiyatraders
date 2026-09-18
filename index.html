@@ -1,2 +1,265 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CTC - Chistiya Trading Company</title><style>
-body{margin:0;font-family:Arial,sans-serif;background:#111;color:#fff}header{padding:18px 30px;background:#0b0b0b;position:sticky;top:0}nav a{color:#d4af37;margin:0 12px;text-decoration:none}.hero{height:70vh;background:#222 url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=60") center/cover;display:flex;align-items:center;justify-content:center;text-align:center}.overlay{background:rgba(0,0,0,.55);padding:40px;border-radius:18px}.btn{display:inline-block;margin-top:20px;padding:14px 22px;background:#25D366;color:#000;font-weight:bold;border-radius:999px;text-decoration:none}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;padding:40px}.card{background:#1a1a1a;border-radius:16px;overflow:hidden}.card img{width:100%;height:240px;object-fit:cover}.card h3,.card p{padding:0 16px}.card a{display:block;margin:16px;background:#d4af37;color:#000;text-align:center;padding:12px;border-radius:10px;text-decoration:none}footer{padding:30px;text-align:center;color:#bbb;border-top:1px solid #333}</style></head><body><header><strong>CTC</strong><nav style="float:right"><a href="#">Home</a><a href="#">Shop</a><a href="#">Contact</a></nav></header><section class="hero"><div class="overlay"><h1>Chistiya Trading Company</h1><p>Premium Leather Duffel Bags • Laptop Bags • Jackets</p><a class="btn" href="https://wa.me/916392013601?text=Hello%20CTC,%20I'm%20interested%20in%20your%20products.">Contact on WhatsApp</a></div></section><section class="grid"><div class="card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60"><h3>Luxury Duffel</h3><p>Premium travel companion.</p><a href="https://wa.me/916392013601?text=Luxury%20Duffel">Enquire</a></div><div class="card"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=60"><h3>Executive Laptop Bag</h3><p>Business-ready elegance.</p><a href="https://wa.me/916392013601?text=Executive%20Laptop%20Bag">Enquire</a></div><div class="card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=60"><h3>Travel Collection</h3><p>Built for style and durability.</p><a href="https://wa.me/916392013601?text=Travel%20Collection">Enquire</a></div></section><footer><p>CTC – Chistiya Trading Company</p><p>WhatsApp: +91 63920 13601</p><p>Email: chistiyatraders32@gmail.com</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTC - Chistiya Trading Company</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#111;color:#fff;line-height:1.6;}
+html{scroll-behavior:smooth;}
+
+header{
+position:sticky;
+top:0;
+background:#0a0a0a;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+border-bottom:1px solid #222;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#d4af37;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:22px;
+transition:.3s;
+}
+
+nav a:hover{color:#d4af37;}
+
+.hero{
+height:90vh;
+background:url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.overlay{
+background:rgba(0,0,0,.6);
+padding:45px;
+border-radius:20px;
+max-width:700px;
+}
+
+.overlay h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.overlay p{
+color:#ddd;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+background:#25D366;
+color:#000;
+font-weight:bold;
+border-radius:50px;
+text-decoration:none;
+}
+
+.section-title{
+text-align:center;
+font-size:34px;
+margin:60px 0 30px;
+color:#d4af37;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:0 8% 60px;
+}
+
+.card{
+background:#1a1a1a;
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.card h3{
+padding:18px 18px 8px;
+color:#fff;
+}
+
+.card p{
+padding:0 18px 18px;
+color:#bbb;
+}
+
+.card a{
+display:block;
+margin:0 18px 20px;
+padding:12px;
+text-align:center;
+background:#d4af37;
+color:#000;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+.about{
+padding:70px 10%;
+background:#181818;
+text-align:center;
+}
+
+.about p{
+max-width:850px;
+margin:auto;
+color:#ccc;
+}
+
+.contact{
+padding:70px 10%;
+text-align:center;
+}
+
+.contact-box{
+background:#1b1b1b;
+padding:30px;
+border-radius:18px;
+max-width:650px;
+margin:auto;
+}
+
+.contact-box p{
+margin:10px 0;
+color:#ddd;
+}
+
+footer{
+padding:25px;
+text-align:center;
+border-top:1px solid #222;
+color:#999;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="logo">CTC</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="overlay">
+<h1>Chistiya Trading Company</h1>
+<p>Premium Leather Duffel Bags • Laptop Bags • Leather Jackets</p>
+
+<a class="btn"
+href="https://wa.me/916392013601?text=Hello%20CTC,%20I'm%20interested%20in%20your%20products.">
+Contact on WhatsApp
+</a>
+
+</div>
+</section>
+
+<h2 class="section-title" id="shop">Our Collection</h2>
+
+<section class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80">
+<h3>Leather Duffel Bag</h3>
+<p>Premium travel companion crafted for durability and style.</p>
+<a href="https://wa.me/916392013601?text=I'm%20interested%20in%20the%20Leather%20Duffel%20Bag">
+Enquire on WhatsApp
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=900&q=80">
+<h3>Laptop Bag</h3>
+<p>Elegant leather laptop bag designed for business professionals.</p>
+<a href="https://wa.me/916392013601?text=I'm%20interested%20in%20the%20Laptop%20Bag">
+Enquire on WhatsApp
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=80">
+<h3>Leather Jacket</h3>
+<p>Classic leather craftsmanship with timeless appeal.</p>
+<a href="https://wa.me/916392013601?text=I'm%20interested%20in%20the%20Leather%20Jacket">
+Enquire on WhatsApp
+</a>
+</div>
+
+</section>
+
+<section class="about" id="about">
+<h2 class="section-title">About CTC</h2>
+
+<p>
+CTC – Chistiya Trading Company specializes in premium leather products including
+leather jackets, laptop bags, and duffel bags.
+We focus on quality craftsmanship, durable materials, and customer satisfaction.
+Instead of displaying fixed prices, customers can contact us directly on WhatsApp
+for the latest pricing and bulk order inquiries.
+</p>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="contact-box">
+
+<p><strong>WhatsApp:</strong> +91 63920 13601</p>
+
+<p><strong>Email:</strong> chistiyatraders32@gmail.com</p>
+
+<a class="btn"
+href="https://wa.me/916392013601?text=Hello%20CTC,%20I%20want%20to%20know%20more%20about%20your%20products.">
+Chat on WhatsApp
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 CTC – Chistiya Trading Company. All Rights Reserved.
+</footer>
+
+</body>
+</html>
