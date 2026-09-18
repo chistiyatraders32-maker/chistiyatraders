@@ -1,11 +1,169 @@
-
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CTC | Chistiya Trading Company</title>
-<link rel="stylesheet" href="style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script></head><body>
-<header><div class="logo"><img src="ctc-logo.png"><h2>CTC</h2></div><nav><a href="#">Home</a><a href="#products">Products</a><a href="admin.html">Admin</a></nav></header>
-<section class="hero"><div><h1>Chistiya Trading Company</h1><p>Premium Leather Duffel Bags • Laptop Bags • Jackets</p><a class="btn" href="https://wa.me/916392013601?text=Hello%20CTC">Contact on WhatsApp</a></div></section>
-<section id="products" class="section"><h2 style="color:#d4af37;text-align:center;margin-bottom:25px">Latest Products</h2><div id="productGrid" class="products"></div></section>
-<footer><p>WhatsApp: +91 63920 13601</p><p>Email: chistiyatraders32@gmail.com</p></footer>
-<script src="app.js"></script></body></html>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#111;color:#fff}
+header{background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+header a{color:#d4af37;text-decoration:none;margin-left:20px}
+.hero{text-align:center;padding:60px 20px;background:#1a1a1a}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero p{margin-bottom:20px}
+.btn{background:#25D366;color:#000;padding:12px 22px;border:none;border-radius:50px;font-weight:bold;text-decoration:none;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:30px}
+.card{background:#1c1c1c;border-radius:18px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover}
+.card h3,.card p{padding:0 16px}
+.card button{margin:16px}
+.admin{background:#181818;padding:30px}
+input,textarea,select{width:100%;padding:12px;margin:8px 0;background:#222;border:1px solid #444;color:#fff;border-radius:10px}
+footer{text-align:center;padding:20px;border-top:1px solid #333}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>CTC</h2>
+<nav>
+<a href="#shop">Shop</a>
+<a href="#admin">Admin</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Chistiya Trading Company</h1>
+<p>Premium Leather Duffel Bags • Laptop Bags • Leather Jackets</p>
+<a class="btn" href="https://wa.me/916392013601">Contact on WhatsApp</a>
+</section>
+
+<section id="shop">
+<h2 style="padding:30px 30px 0;">Our Products</h2>
+<div id="products" class="grid"></div>
+</section>
+
+<section id="admin" class="admin">
+<h2>Admin Panel</h2>
+
+<input id="title" placeholder="Product Title">
+
+<textarea id="description" placeholder="Description"></textarea>
+
+<select id="category">
+<option>Duffel Bag</option>
+<option>Laptop Bag</option>
+<option>Leather Jacket</option>
+</select>
+
+<input id="image" type="file" accept="image/*">
+
+<button class="btn" onclick="addProduct()">Upload Product</button>
+
+</section>
+
+<footer>
+<p>CTC – Chistiya Trading Company</p>
+<p>WhatsApp: +91 63920 13601</p>
+<p>Email: chistiyatraders32@gmail.com</p>
+</footer>
+
+<script>
+const supabase = window.supabase.createClient(
+"https://ektcnsozshcrphiuxypz.supabase.co",
+"sb_publishable_MtE65Q5d_YzQNc9N7ynZCQ_apV-Nam8"
+);
+
+async function loadProducts(){
+
+const container=document.getElementById("products");
+
+container.innerHTML="Loading...";
+
+const {data,error}=await supabase
+.from("products")
+.select("*")
+.order("id",{ascending:false});
+
+if(error){
+container.innerHTML="Database Error";
+console.error(error);
+return;
+}
+
+container.innerHTML="";
+
+data.forEach(product=>{
+
+container.innerHTML+=`
+<div class="card">
+<img src="${product.image_url}" alt="">
+<h3>${product.title}</h3>
+<p>${product.description||""}</p>
+<button class="btn"
+onclick="window.open('https://wa.me/916392013601?text='+encodeURIComponent('I am interested in ${product.title}'))">
+Enquire
+</button>
+</div>
+`;
+
+});
+
+}
+
+async function addProduct(){
+
+const file=document.getElementById("image").files[0];
+
+if(!file){
+alert("Choose an image");
+return;
+}
+
+const fileName=Date.now()+"-"+file.name;
+
+const upload=await supabase.storage
+.from("products")
+.upload(fileName,file,{upsert:true});
+
+if(upload.error){
+alert(upload.error.message);
+return;
+}
+
+const {data}=supabase.storage
+.from("products")
+.getPublicUrl(fileName);
+
+const insert=await supabase.from("products").insert({
+title:document.getElementById("title").value,
+description:document.getElementById("description").value,
+category:document.getElementById("category").value,
+image_url:data.publicUrl
+});
+
+if(insert.error){
+alert(insert.error.message);
+return;
+}
+
+alert("Product Added Successfully!");
+
+document.getElementById("title").value="";
+document.getElementById("description").value="";
+document.getElementById("image").value="";
+
+loadProducts();
+
+}
+
+loadProducts();
+</script>
+
+</body>
+</html>
