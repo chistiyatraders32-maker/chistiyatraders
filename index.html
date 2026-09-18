@@ -17,5 +17,11 @@ color:white;
 }
 </style>
 </head>
-<body>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<body><script>
+const supabase = window.supabase.createClient(
+  "https://ektcnsozshcrphiuxypz.supabase.co",
+  "sb_publishable_MtE65Q5d_YzQNc9N7ynZCQ_apV-Nam8"
+);
+
+console.log("CTC connected to Supabase");
+</script>s
