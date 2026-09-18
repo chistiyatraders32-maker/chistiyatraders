@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CTC Admin</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<style>
+.admin{
+max-width:700px;
+margin:50px auto;
+background:#181818;
+padding:30px;
+border-radius:20px;
+}
+input,textarea,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+button{
+padding:14px;
+background:#d4af37;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+width:100%;
+}
+#preview{
+width:180px;
+margin:10px 0;
+display:none;
+border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="admin">
+
+<h1 style="text-align:center;color:#d4af37;">CTC Admin Panel</h1>
+
+<input type="file" id="image">
+
+<img id="preview">
+
+<input id="title" placeholder="Product Title">
+
+<textarea id="description" placeholder="Product Description"></textarea>
+
+<select id="category">
+<option>Leather Duffel Bag</option>
+<option>Laptop Bag</option>
+<option>Leather Jacket</option>
+</select>
+
+<button onclick="saveProduct()">Save Product</button>
+
+<hr style="margin:30px 0">
+
+<div id="adminProducts"></div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
